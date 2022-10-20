@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.josue.example.mdcomponents.Fragments.ButtonFragment;
+import com.josue.example.mdcomponents.Fragments.BottomNavigationBarFragment;
 import com.josue.example.mdcomponents.adapters.ComponentAdapter;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private void configAdapter() {
         mAdapter = new ComponentAdapter(new ArrayList<>(),this);
         mAdapter.add(ButtonFragment.getItemInstance());
+        mAdapter.add(BottomNavigationBarFragment.getItemInstance());
     }
 
     private void configRecyclerView() {

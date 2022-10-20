@@ -1,5 +1,4 @@
-package com.josue.example.mdcomponents;
-
+package com.josue.example.mdcomponents.Fragments;
 
 import android.os.Bundle;
 
@@ -8,21 +7,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ButtonFragment#newInstance} factory method to
+ * Use the {@link BottomNavigationBarFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ButtonFragment extends Fragment {
+public class BottomNavigationBarFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,21 +30,21 @@ public class ButtonFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public  static final String TAG = "Button";
+    public  static final String TAG = "Button Navigation";
     private static Component mInstance;
     Unbinder mUnbinder;
-
-    public ButtonFragment() {
-        // Required empty public constructor
-    }
 
     public static Component getItemInstance() {
         mInstance = new Component();
         mInstance.setName(TAG);
-        mInstance.setPhotoRes(R.drawable.img_button);
-        mInstance.setType(Constants.SCROLL);
+        mInstance.setPhotoRes(R.drawable.img_bottomnav_mobile_portrait);
+        mInstance.setType(Constants.STATIC);
 
         return mInstance;
+    }
+
+    public BottomNavigationBarFragment() {
+        // Required empty public constructor
     }
 
     /**
@@ -56,11 +53,11 @@ public class ButtonFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ButtonFragment.
+     * @return A new instance of fragment BottomNavigationBarFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ButtonFragment newInstance(String param1, String param2) {
-        ButtonFragment fragment = new ButtonFragment();
+    public static BottomNavigationBarFragment newInstance(String param1, String param2) {
+        BottomNavigationBarFragment fragment = new BottomNavigationBarFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -81,18 +78,6 @@ public class ButtonFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_button, container, false);
-        mUnbinder = ButterKnife.bind(this, view);
-        return view;
-    }
-    @OnClick(R.id.btnEnable)
-    public void onViewClicked(){
-        Toast.makeText(getActivity(),getString(R.string.status_enabled), Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mUnbinder.unbind();
+        return inflater.inflate(R.layout.fragment_bottom_navigation_bar, container, false);
     }
 }
