@@ -82,34 +82,39 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeWidth="@dimen/common_padding_nano"
-        app:hintEnabled="true"
-        app:helperText="@string/helper_comment_optional"
-        app:endIconMode="clear_text"
-        app:boxStrokeColor="@drawable/states_colors_text_field"
         android:layout_marginTop="@dimen/common_padding_default"
-        android:hint="@string/status_custom">
+        android:hint="@string/status_custom"
+        app:boxStrokeColor="@drawable/states_colors_text_field"
+        app:boxStrokeWidth="@dimen/common_padding_nano"
+        app:endIconMode="clear_text"
+        app:helperText="@string/helper_comment_optional"
+        app:hintEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:maxLines="3"/>
+            android:maxLines="3" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiCapitalLetter"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_padding_default"
-        app:boxCornerRadiusBottomStart="@dimen/circle_radius"
+        android:hint="@string/hint_capital_letter"
         app:boxCornerRadiusBottomEnd="@dimen/circle_radius"
-        app:boxCornerRadiusTopStart="@dimen/circle_radius"
+        app:boxCornerRadiusBottomStart="@dimen/circle_radius"
         app:boxCornerRadiusTopEnd="@dimen/circle_radius"
-        android:hint="@string/hint_capital_letter">
+        app:boxCornerRadiusTopStart="@dimen/circle_radius"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_format_size"
+        app:endIconTint="@color/purple_700">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCapitalLetter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />

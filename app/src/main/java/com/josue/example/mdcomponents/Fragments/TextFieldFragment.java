@@ -4,14 +4,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,8 +42,14 @@ public class TextFieldFragment extends Fragment {
     public  static final String TAG = "TextFieldFragment";
     private static Component mInstance;
     Unbinder mUnbinder;
-    @BindView(R.id.container_main)
-    FrameLayout containerMain;
+//    @BindView(R.id.container_main)
+//    FrameLayout containerMain;
+    @BindView(R.id.etPrice)
+    TextInputEditText etPrice;
+    @BindView(R.id.etCapitalLetter)
+    TextInputEditText etCapitalLetter;
+    @BindView(R.id.tiCapitalLetter)
+    TextInputLayout tiCapitalLetter;
 
     public static Component getItemInstance() {
         mInstance = new Component();
@@ -83,9 +95,42 @@ public class TextFieldFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        View v = inflater.inflate(R.layout.fragment_text_filed, container, false);
+        View v = inflater.inflate(R.layout.fragment_text_filed, container, false);
+        mUnbinder = ButterKnife.bind(this, v);
 
-//        mUnbinder = ButterKnife.bind(this, v);
-        return inflater.inflate(R.layout.fragment_text_filed, container, false);
+        tiCapitalLetter.setEndIconOnClickListener(view -> {
+            if (etCapitalLetter.getText() != null) {
+                String contentStr = etCapitalLetter.getText().toString();
+                etCapitalLetter.setText(contentStr.toUpperCase());
+            }
+        });
+
+        etPrice.addTextChangedListener( new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!editable.toString().isEmpty() && Integer.valueOf(etPrice.getText().toString()) < 5){
+                    etPrice.setError(getString(R.string.error_price_min));
+                }
+            }
+        });
+
+        return v;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbinder.unbind();
     }
 }
