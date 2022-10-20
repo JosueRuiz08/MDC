@@ -11,6 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/menu_bottom_nav"/>
+        app:menu="@menu/menu_bottom_nav"
+        android:background="@android:color/holo_blue_bright"
+        app:itemIconTint="@drawable/states_colors_bottom_navigation"
+        app:itemTextColor="@drawable/states_colors_bottom_navigation"/>
+<!--        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"/>-->
 
 </FrameLayout>

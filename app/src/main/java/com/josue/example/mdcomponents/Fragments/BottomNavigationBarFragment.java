@@ -1,5 +1,6 @@
 package com.josue.example.mdcomponents.Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,10 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
@@ -33,6 +38,8 @@ public class BottomNavigationBarFragment extends Fragment {
     public  static final String TAG = "Button Navigation";
     private static Component mInstance;
     Unbinder mUnbinder;
+    @BindView(R.id.bottomNavigation)
+    BottomNavigationView bottomNavigation;
 
     public static Component getItemInstance() {
         mInstance = new Component();
@@ -78,6 +85,26 @@ public class BottomNavigationBarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bottom_navigation_bar, container, false);
+        View v = inflater.inflate(R.layout.fragment_bottom_navigation_bar, container, false);
+        mUnbinder = ButterKnife.bind(this, v);
+
+        bottomNavigation.getOrCreateBadge(R.id.action_start);
+//        bottomNavigation.removeBadge(R.id.action_start);
+        BadgeDrawable favoriteBadge =  bottomNavigation.getOrCreateBadge(R.id.action_favorites);
+        favoriteBadge.setNumber(4);
+
+        BadgeDrawable profileBadge = bottomNavigation.getOrCreateBadge(R.id.action_profile);
+        profileBadge.setNumber(100);
+        profileBadge.setMaxCharacterCount(3);
+        profileBadge.setBackgroundColor(Color.CYAN);
+        profileBadge.setBadgeTextColor(Color.MAGENTA);
+
+        return v;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbinder.unbind();
     }
 }
