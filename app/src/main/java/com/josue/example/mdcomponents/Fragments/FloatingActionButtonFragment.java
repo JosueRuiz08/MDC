@@ -2,16 +2,22 @@ package com.josue.example.mdcomponents.Fragments;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
@@ -33,6 +39,16 @@ public class FloatingActionButtonFragment extends Fragment {
     public  static final String TAG = "FloatingActionButtonFragment";
     private static Component mInstance;
     Unbinder mUnbinder;
+    @BindView(R.id.fabDefault)
+    FloatingActionButton fabDefault;
+    @BindView(R.id.fabLegacy)
+    FloatingActionButton fabLegacy;
+    @BindView(R.id.fabCustom)
+    FloatingActionButton fabCustom;
+    @BindView(R.id.containerMain)
+    ConstraintLayout containerMain;
+    @BindView(R.id.tvLegacy)
+    TextView tvLegacy;
 
     public static Component getItemInstance() {
         mInstance = new Component();
@@ -79,6 +95,13 @@ public class FloatingActionButtonFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_floating_action_button, container, false);
+        mUnbinder = ButterKnife.bind(this, v);
+        fabDefault.setOnClickListener(view -> Toast.makeText(getActivity(), getString(R.string.message_action_success),Toast.LENGTH_SHORT).show());
+        fabLegacy.setOnClickListener(view -> {
+            fabLegacy.setVisibility(View.GONE);
+            tvLegacy.setVisibility(View.GONE);
+        });
+
         return v;
     }
 

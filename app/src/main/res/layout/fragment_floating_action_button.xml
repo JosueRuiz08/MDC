@@ -56,5 +56,31 @@
         app:layout_constraintTop_toTopOf="@+id/fabLegacy"
         app:layout_constraintBottom_toBottomOf="@+id/fabLegacy"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_padding_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fabLegacy"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:src="@drawable/ic_zoom_in"
+        app:tint="@android:color/holo_orange_light"
+        app:backgroundTint="@color/purple_700"
+        app:rippleColor="@android:color/holo_blue_bright"
+        android:elevation="@dimen/common_padding_default"
+        app:maxImageSize="40dp"
+        app:borderWidth="@dimen/common_padding_micro"
+        />
+
+    <TextView
+        android:id="@+id/tvCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_custom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/fabCustom"
+        app:layout_constraintBottom_toBottomOf="@+id/fabCustom"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
