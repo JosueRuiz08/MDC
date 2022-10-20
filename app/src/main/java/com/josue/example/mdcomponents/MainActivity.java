@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.josue.example.mdcomponents.Fragments.ButtonFragment;
 import com.josue.example.mdcomponents.Fragments.BottomNavigationBarFragment;
 import com.josue.example.mdcomponents.Fragments.SnackBarFragment;
+import com.josue.example.mdcomponents.Fragments.TextFieldFragment;
 import com.josue.example.mdcomponents.adapters.ComponentAdapter;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mAdapter.add(ButtonFragment.getItemInstance());
         mAdapter.add(BottomNavigationBarFragment.getItemInstance());
         mAdapter.add(SnackBarFragment.getItemInstance());
+        mAdapter.add(TextFieldFragment.getItemInstance());
     }
 
     private void configRecyclerView() {
