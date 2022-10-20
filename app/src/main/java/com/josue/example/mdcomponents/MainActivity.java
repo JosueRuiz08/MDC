@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     private void configAdapter() {
         mAdapter = new ComponentAdapter(new ArrayList<>(),this);
+        mAdapter.add(ButtonFragment.getItemInstance());
     }
 
     private void configRecyclerView() {
