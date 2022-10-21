@@ -109,8 +109,8 @@
         app:boxCornerRadiusBottomStart="@dimen/circle_radius"
         app:boxCornerRadiusTopEnd="@dimen/circle_radius"
         app:boxCornerRadiusTopStart="@dimen/circle_radius"
-        app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_format_size"
+        app:endIconMode="custom"
         app:endIconTint="@color/purple_700">
 
         <com.google.android.material.textfield.TextInputEditText
