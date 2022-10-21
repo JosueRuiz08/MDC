@@ -45,4 +45,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+//    implementation 'com.github.sevar83:indeterminate-checkbox:1.0.5'
 }

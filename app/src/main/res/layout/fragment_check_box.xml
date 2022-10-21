@@ -69,4 +69,21 @@
         app:layout_constraintTop_toTopOf="@+id/cbDisableSelected"
         app:layout_constraintBottom_toBottomOf="@+id/cbDisableSelected"/>
 
+    <CheckBox
+        android:id="@+id/cbDisableIndeterminate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbDisableSelected"
+        android:checked="false" />
+    <TextView
+        android:id="@+id/tvDisableIndeterminate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_enabled_indeterminate"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/cbDisableIndeterminate"
+        app:layout_constraintBottom_toBottomOf="@+id/cbDisableIndeterminate"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

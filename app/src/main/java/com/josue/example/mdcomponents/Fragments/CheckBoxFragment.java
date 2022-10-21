@@ -7,11 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.FrameLayout;
 
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -34,6 +37,12 @@ public class CheckBoxFragment extends Fragment {
     public  static final String TAG = "CheckBoxFragment";
     private static Component mInstance;
     Unbinder mUnbinder;
+    @BindView(R.id.cbEnable)
+    CheckBox cbEnable;
+    @BindView(R.id.cbDisableIndeterminate)
+    CheckBox cbDisableIndeterminate;
+//    @BindView(R.id.containerMain)
+//    FrameLayout containerMain;
 
     public static Component getItemInstance() {
         mInstance = new Component();
@@ -81,7 +90,17 @@ public class CheckBoxFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_check_box, container, false);
         mUnbinder = ButterKnife.bind(this, v);
-
+        cbEnable.setOnClickListener(view -> {
+            int status = cbEnable.isChecked() ? R.drawable.ic_indeterminate_check_box : R.drawable.ic_check_box_outline_blank;
+            cbDisableIndeterminate.setButtonDrawable(status);
+        });
+        cbDisableIndeterminate.setOnClickListener(view -> {
+            if (cbDisableIndeterminate.isChecked()) {
+                cbDisableIndeterminate.setButtonDrawable(R.drawable.ic_check_box);
+            }else {
+                cbDisableIndeterminate.setButtonDrawable(R.drawable.ic_check_box_outline_blank);
+            }
+        });
 
         return v;
     }
