@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 
 import com.josue.example.mdcomponents.Fragments.ButtonFragment;
 import com.josue.example.mdcomponents.Fragments.BottomNavigationBarFragment;
+import com.josue.example.mdcomponents.Fragments.CardFragment;
 import com.josue.example.mdcomponents.Fragments.CheckBoxFragment;
 import com.josue.example.mdcomponents.Fragments.FloatingActionButtonFragment;
 import com.josue.example.mdcomponents.Fragments.SnackBarFragment;
@@ -27,6 +28,9 @@ public class CommonUtils {
                 break;
             case TextFieldFragment.TAG:
                 fragment = new TextFieldFragment();
+                break;
+            case CardFragment.TAG:
+                fragment = new CardFragment();
                 break;
             //Static
             case BottomNavigationBarFragment.TAG:
