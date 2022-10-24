@@ -3,37 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:padding="@dimen/common_padding_default"
     tools:context=".Fragments.AlertDialogFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDialogInfo"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_info"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        android:text="@string/dialog_info" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDialogChooser"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_chooser"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        android:text="@string/dialog_chooser" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDialogComfirm"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_confirm"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        android:text="@string/dialog_confirm" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDialogFullScreen"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_full_screen"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        android:text="@string/dialog_full_screen" />
 
 </LinearLayout>

@@ -13,8 +13,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            app:titleTextColor="@color/white"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/white">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnsave"

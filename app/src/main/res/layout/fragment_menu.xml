@@ -3,28 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:padding="@dimen/common_padding_default"
     tools:context=".Fragments.MenuFragment">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMenuPopup"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/menu_popup_menu"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        android:text="@string/menu_popup_menu" />
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/menu_hint_autocomplete"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        android:hint="@string/menu_hint_autocomplete">
 
         <AutoCompleteTextView
             android:id="@+id/actvCourses"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.josue.example.mdcomponents.Fragments.AppBarFragment;
 import com.josue.example.mdcomponents.Fragments.ButtonFragment;
 import com.josue.example.mdcomponents.Fragments.BottomNavigationBarFragment;
 import com.josue.example.mdcomponents.Fragments.CardFragment;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mAdapter.add(CardFragment.getItemInstance());
         mAdapter.add(MenuFragment.getItemInstance());
         mAdapter.add(AlertDialogFragment.getItemInstance());
+        mAdapter.add(AppBarFragment.getItemInstance());
         mAdapter.reverse();
     }
 
