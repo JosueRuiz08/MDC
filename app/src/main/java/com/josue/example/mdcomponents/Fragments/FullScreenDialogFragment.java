@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.josue.example.mdcomponents.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -66,7 +68,7 @@ public class FullScreenDialogFragment extends DialogFragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        setStyle(DialogFragment.STYLE_NORMAL, com.google.android.material.R.style.ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialog);
     }
 
     @Override
@@ -75,6 +77,11 @@ public class FullScreenDialogFragment extends DialogFragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_full_screen_dialog, container, false);
         mUnbinder = ButterKnife.bind(this, v);
+
+        toolbar.setNavigationIcon(R.drawable.ic_close);
+        toolbar.setNavigationOnClickListener(view -> dismiss());
+        toolbar.setTitle(R.string.dialog_full_screen);
+
         return v;
     }
 
@@ -82,5 +89,11 @@ public class FullScreenDialogFragment extends DialogFragment {
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
+    }
+
+    @OnClick(R.id.btnsave)
+    public void onSaveClicked(){
+        Toast.makeText(getActivity(),R.string.message_action_success, Toast.LENGTH_SHORT).show();
+        dismiss();
     }
 }
