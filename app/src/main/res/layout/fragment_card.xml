@@ -195,6 +195,7 @@
                 android:layout_marginStart="@dimen/common_padding_min"
                 app:layout_constraintStart_toEndOf="@id/chipFirst"
                 app:layout_constraintTop_toTopOf="@id/chipFirst"
+                android:checkable="true"
                 app:layout_constraintBottom_toBottomOf="@id/chipFirst"/>
 
             <com.google.android.material.chip.Chip
@@ -204,6 +205,7 @@
                 android:text="@string/card_chip_demo"
                 android:layout_marginStart="@dimen/common_padding_min"
                 app:layout_constraintStart_toEndOf="@id/chipSecond"
+                app:closeIconEnabled="true"
                 app:layout_constraintTop_toTopOf="@id/chipSecond"
                 app:layout_constraintBottom_toBottomOf="@id/chipSecond"/>
 
@@ -212,6 +214,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/card_chip_demo"
+                android:checkable="true"
+                app:checkedIcon="@drawable/ic_favorite"
+                app:closeIconEnabled="true"
                 android:layout_marginStart="@dimen/common_padding_min"
                 app:layout_constraintStart_toEndOf="@id/chipThird"
                 app:layout_constraintTop_toTopOf="@id/chipThird"

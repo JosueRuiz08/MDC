@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
@@ -11,14 +12,14 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.chip.Chip;
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
-import java.util.Objects;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -42,6 +43,10 @@ public class CardFragment extends Fragment {
 
     @BindView(R.id.imgCardLarge)
     AppCompatImageView imgCardLarge;
+    @BindView(R.id.chipSecond)
+    Chip chipSecond;
+    @BindView(R.id.chipThird)
+    Chip chipThird;
 
     public static Component getItemInstance() {
         mInstance = new Component();
@@ -97,6 +102,12 @@ public class CardFragment extends Fragment {
         Glide.with(this).load(imageUrl)
                 .apply(options)
                 .into(imgCardLarge);
+        chipSecond.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+            if (isChecked){
+                Toast.makeText(getActivity(), "Checked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        chipThird.setOnCloseIconClickListener(view1 -> chipThird.setVisibility(View.GONE));
 
         return v;
     }
@@ -105,5 +116,9 @@ public class CardFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
+    }
+    @OnClick(R.id.chipFirst)
+    public void onViewClicked(){
+        Toast.makeText(getActivity(), "Chip First", Toast.LENGTH_SHORT).show();
     }
 }
