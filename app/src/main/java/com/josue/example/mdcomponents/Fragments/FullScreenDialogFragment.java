@@ -2,6 +2,8 @@ package com.josue.example.mdcomponents.Fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,12 +12,21 @@ import android.view.ViewGroup;
 
 import com.josue.example.mdcomponents.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FullScreenDialogFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FullScreenDialogFragment extends Fragment {
+public class FullScreenDialogFragment extends DialogFragment {
+
+    public static final String TAG = "FullScreenDialogFragment";
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    Unbinder mUnbinder;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,12 +66,21 @@ public class FullScreenDialogFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        setStyle(DialogFragment.STYLE_NORMAL, com.google.android.material.R.style.ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_full_screen_dialog, container, false);
+        View v = inflater.inflate(R.layout.fragment_full_screen_dialog, container, false);
+        mUnbinder = ButterKnife.bind(this, v);
+        return v;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mUnbinder.unbind();
     }
 }
