@@ -2,6 +2,7 @@ package com.josue.example.mdcomponents.Fragments;
 
 import android.os.Bundle;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
@@ -10,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.josue.example.mdcomponents.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -25,6 +29,13 @@ public class AppBarBottomFragment extends DialogFragment {
 
     public static final String TAG = "AppBarBottomFragment";
     Unbinder mUnbinder;
+    private boolean isCentered;
+    @BindView(R.id.containerMain)
+    CoordinatorLayout containerMain;
+    @BindView(R.id.bottom_app_bar)
+    BottomAppBar bottom_app_bar;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,5 +92,15 @@ public class AppBarBottomFragment extends DialogFragment {
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
+    }
+
+    @OnClick(R.id.fab)
+    public void onFabClicked(){
+        if (isCentered){
+            bottom_app_bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
+        }else {
+            bottom_app_bar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+        }
+        isCentered = !isCentered;
     }
 }
