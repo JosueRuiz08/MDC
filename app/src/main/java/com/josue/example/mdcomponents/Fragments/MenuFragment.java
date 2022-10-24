@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.PopupMenu;
 
 import com.google.android.material.button.MaterialButton;
@@ -48,6 +50,8 @@ public class MenuFragment extends Fragment {
 
     @BindView(R.id.btnMenuPopup)
     MaterialButton btnMenuPopup;
+    @BindView(R.id.actvCourses)
+    AutoCompleteTextView actvCourses;
 
 
     public MenuFragment() {
@@ -93,6 +97,13 @@ public class MenuFragment extends Fragment {
             popupMenu.getMenuInflater().inflate(R.menu.menu_bottom_nav, popupMenu.getMenu());
             popupMenu.show();
         });
+        String[] courses = new String[] {"Experto en firebase para android +MVP Curso completo +30Hrs",
+        "Curso A Desing",
+        "Andropid: Funfamentos apps de calidad",
+        "Klotlin 2020"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.item_menu_dropdown,courses);
+        actvCourses.setAdapter(adapter);
 
         return v;
     }
