@@ -3,6 +3,7 @@ package com.josue.example.mdcomponents.utils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.josue.example.mdcomponents.Fragments.AlertDialogFragment;
 import com.josue.example.mdcomponents.Fragments.ButtonFragment;
 import com.josue.example.mdcomponents.Fragments.BottomNavigationBarFragment;
 import com.josue.example.mdcomponents.Fragments.CardFragment;
@@ -48,6 +49,9 @@ public class CommonUtils {
                 break;
             case MenuFragment.TAG:
                 fragment = new MenuFragment();
+                break;
+            case AlertDialogFragment.TAG:
+                fragment = new AlertDialogFragment();
                 break;
         }
         return fragment;
