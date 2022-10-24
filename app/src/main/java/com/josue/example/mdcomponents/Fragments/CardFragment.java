@@ -1,17 +1,23 @@
 package com.josue.example.mdcomponents.Fragments;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
+import java.util.Objects;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -33,6 +39,9 @@ public class CardFragment extends Fragment {
     public  static final String TAG = "CardFragment";
     private static Component mInstance;
     Unbinder mUnbinder;
+
+    @BindView(R.id.imgCardLarge)
+    AppCompatImageView imgCardLarge;
 
     public static Component getItemInstance() {
         mInstance = new Component();
@@ -80,6 +89,14 @@ public class CardFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_card, container, false);
         mUnbinder = ButterKnife.bind(this, v);
+
+        RequestOptions options = new RequestOptions()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop();
+        String imageUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg";
+        Glide.with(this).load(imageUrl)
+                .apply(options)
+                .into(imgCardLarge);
 
         return v;
     }
