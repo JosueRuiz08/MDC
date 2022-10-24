@@ -1,6 +1,8 @@
 package com.josue.example.mdcomponents;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -56,6 +58,13 @@ public class StaticActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater minflater = getMenuInflater();
+        minflater.inflate(R.menu.menu_bottom_nav,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
@@ -63,6 +72,7 @@ public class StaticActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 //    @Override
 //    public boolean onSupportNavigateUp() {

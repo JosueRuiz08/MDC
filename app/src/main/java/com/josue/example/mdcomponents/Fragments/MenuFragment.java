@@ -7,11 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 
+import com.google.android.material.button.MaterialButton;
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -42,6 +45,9 @@ public class MenuFragment extends Fragment {
 
         return mInstance;
     }
+
+    @BindView(R.id.btnMenuPopup)
+    MaterialButton btnMenuPopup;
 
 
     public MenuFragment() {
@@ -82,6 +88,11 @@ public class MenuFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_menu, container, false);
         mUnbinder = ButterKnife.bind(this, v);
 
+        btnMenuPopup.setOnClickListener(view1 ->{
+            PopupMenu popupMenu =  new PopupMenu(getActivity(), view1);
+            popupMenu.getMenuInflater().inflate(R.menu.menu_bottom_nav, popupMenu.getMenu());
+            popupMenu.show();
+        });
 
         return v;
     }
