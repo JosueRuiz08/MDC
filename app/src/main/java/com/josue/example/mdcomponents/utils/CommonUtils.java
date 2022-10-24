@@ -8,6 +8,7 @@ import com.josue.example.mdcomponents.Fragments.BottomNavigationBarFragment;
 import com.josue.example.mdcomponents.Fragments.CardFragment;
 import com.josue.example.mdcomponents.Fragments.CheckBoxFragment;
 import com.josue.example.mdcomponents.Fragments.FloatingActionButtonFragment;
+import com.josue.example.mdcomponents.Fragments.MenuFragment;
 import com.josue.example.mdcomponents.Fragments.SnackBarFragment;
 import com.josue.example.mdcomponents.Fragments.TextFieldFragment;
 
@@ -44,6 +45,9 @@ public class CommonUtils {
                 break;
             case CheckBoxFragment.TAG:
                 fragment = new CheckBoxFragment();
+                break;
+            case MenuFragment.TAG:
+                fragment = new MenuFragment();
                 break;
         }
         return fragment;
