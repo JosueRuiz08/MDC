@@ -11,6 +11,7 @@ import com.josue.example.mdcomponents.Fragments.CardFragment;
 import com.josue.example.mdcomponents.Fragments.CheckBoxFragment;
 import com.josue.example.mdcomponents.Fragments.FloatingActionButtonFragment;
 import com.josue.example.mdcomponents.Fragments.MenuFragment;
+import com.josue.example.mdcomponents.Fragments.PickerFragment;
 import com.josue.example.mdcomponents.Fragments.SnackBarFragment;
 import com.josue.example.mdcomponents.Fragments.TextFieldFragment;
 
@@ -56,6 +57,9 @@ public class CommonUtils {
                 break;
             case AppBarFragment.TAG:
                 fragment = new AppBarFragment();
+                break;
+            case PickerFragment.TAG:
+                fragment = new PickerFragment();
                 break;
         }
         return fragment;

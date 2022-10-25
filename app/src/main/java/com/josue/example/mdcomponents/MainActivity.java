@@ -14,6 +14,7 @@ import com.josue.example.mdcomponents.Fragments.CheckBoxFragment;
 import com.josue.example.mdcomponents.Fragments.AlertDialogFragment;
 import com.josue.example.mdcomponents.Fragments.FloatingActionButtonFragment;
 import com.josue.example.mdcomponents.Fragments.MenuFragment;
+import com.josue.example.mdcomponents.Fragments.PickerFragment;
 import com.josue.example.mdcomponents.Fragments.SnackBarFragment;
 import com.josue.example.mdcomponents.Fragments.TextFieldFragment;
 import com.josue.example.mdcomponents.adapters.ComponentAdapter;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mAdapter.add(MenuFragment.getItemInstance());
         mAdapter.add(AlertDialogFragment.getItemInstance());
         mAdapter.add(AppBarFragment.getItemInstance());
+        mAdapter.add(PickerFragment.getItemInstance());
         mAdapter.reverse();
     }
 
