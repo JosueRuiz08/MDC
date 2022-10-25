@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.josue.example.mdcomponents.R;
 
 import butterknife.BindView;
@@ -84,6 +85,30 @@ public class AppBarBottomFragment extends DialogFragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_app_bar_bottom, container, false);
         mUnbinder = ButterKnife.bind(this, v);
+        bottom_app_bar.setOnMenuItemClickListener(item -> {
+            int resMessage;
+            switch (item.getItemId()) {
+                case R.id.action_favorites:
+                    resMessage = R.string.menu_favorites;
+                    break;
+                case R.id.action_profile:
+                    resMessage = R.string.menu_profile;
+                    break;
+                default:
+                    resMessage = R.string.menu_start;
+                    break;
+            }
+            Snackbar.make(containerMain, resMessage, Snackbar.LENGTH_SHORT)
+                    .setAnchorView(fab)
+                    .show();
+
+            return true;
+        });
+        bottom_app_bar.setNavigationOnClickListener(view -> {
+            Snackbar.make(containerMain, R.string.message_action_success, Snackbar.LENGTH_SHORT)
+                    .setAnchorView(fab)
+                    .show();
+        });
 
         return v;
     }
