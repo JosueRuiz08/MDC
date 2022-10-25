@@ -156,4 +156,5 @@
     <string name="app_bar_top">APP BAR TOP</string>
     <string name="picker_dialog">PICKER DIALOG</string>
     <string name="picker_full_screen">PICKER FULLSCREEN</string>
+    <string name="picker_title">Seleccione una fecha</string>
 </resources>

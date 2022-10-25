@@ -10,13 +10,13 @@
     android:gravity="center_horizontal">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnDialog"
+        android:id="@+id/btnDialogPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/picker_dialog"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnFullScreen"
+        android:id="@+id/btnFullScreenPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/picker_full_screen"/>

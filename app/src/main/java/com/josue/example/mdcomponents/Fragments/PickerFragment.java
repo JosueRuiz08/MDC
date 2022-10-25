@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.josue.example.mdcomponents.R;
 import com.josue.example.mdcomponents.utils.Component;
 import com.josue.example.mdcomponents.utils.Constants;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -87,5 +89,19 @@ public class PickerFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mUnbinder.unbind();
+    }
+    @OnClick({R.id.btnDialogPicker,R.id.btnFullScreenPicker})
+    public void onPickerClicked(View view){
+        switch (view.getId()) {
+            case R.id.btnDialogPicker:
+                MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
+                builder.setTitleText(R.string.picker_title);
+                builder.setTheme(com.google.android.material.R.style.ThemeOverlay_MaterialComponents_MaterialCalendar);
+                MaterialDatePicker<?> picker = builder.build();
+                picker.show(getFragmentManager(), picker.toString());
+                break;
+                case R.id.btnFullScreenPicker:
+                    break;
+        }
     }
 }
